@@ -1,0 +1,12 @@
+.git
+.next
+.npm-cache
+node_modules
+.env*
+screenshots
+research
+scripts
+test-results
+playwright-report
+*.tsbuildinfo
+*.md

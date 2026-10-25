@@ -1,0 +1,124 @@
+.hero { padding: 44px 64px 0; background: #10141a; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0 52px; }
+.copy { position: relative; z-index: 1; padding: 12px 0 48px; }
+.positioning { display: flex; align-items: center; gap: 10px; font-size: 9px; letter-spacing: .015em; color: #bdc8c7; }
+.copy h1 { margin-top: 24px; font: 500 clamp(66px, 6.55vw, 102px)/1.05 var(--display); letter-spacing: -.075em; white-space: nowrap; }
+.headline { margin-top: 32px; }
+.headline p { font: 400 clamp(27px, 2.35vw, 36px)/1.25 var(--display); letter-spacing: -1.25px; max-width: 590px; text-wrap: balance; }
+.headline span { color: var(--steel); }
+.description { margin-top: 23px; max-width: 455px; }
+.description p { color: #b9c3c5; font-size: 15px; line-height: 1.9; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px 26px; margin-top: 30px; }
+.actions :global(.work-link) { background: var(--lime); color: #17200f; gap: 25px; min-height: 54px; padding: 0 17px 0 22px; font-size: 13px; transition: background .25s; }
+.actions :global(.round-arrow) { border: 0; border-radius: 0; height: 48px; width: 25px; color: #17200f; }
+.actions :global(.work-link):hover { background: #e0ffad; }
+.actions :global(.work-link):hover :global(.round-arrow) { background: transparent; transform: translate(3px, 3px); }
+.actions :global(.hero-contact), .actions :global(.resume-action) { font-size: 13px; color: #e0e6e3; }
+.architecture { align-self: center; min-width: 0; margin: -8px 0 30px; }
+.architecture :global(.system-environment) { height: 460px; margin: 0; border-block: 1px solid #8badd02e; background-size: 24px 24px; background-image: radial-gradient(#8badd029 .7px, transparent .7px); }
+.architecture :global(.system-environment)::before { background: radial-gradient(ellipse at 45% 37%, #cfff7708, transparent 63%); }
+.architecture :global(.system-coordinate) { top: 17px; font-size: 8px; color: #b5c3c9; letter-spacing: .015em; }
+.architecture :global(.system-map-help) { top: 17px; font-size: 8px; gap: 6px; color: #b5c3c9; }
+.architecture :global(.system-map) { position: absolute; inset: 43px 18px 185px 5px; width: auto; height: auto; }
+.architecture :global(.system-node) { width: 96px; min-height: 83px; transform: translate(-50%, -24px); }
+.architecture :global(.node-request) { left: 11% !important; }
+.architecture :global(.node-response) { left: 92% !important; }
+.architecture :global(.node-orb) { height: 45px; width: 45px; background: #182124; }
+.architecture :global(.node-orb) > svg { height: 21px; width: 21px; }
+.architecture :global(.node-api) { transform: translate(-50%, -35px); }
+.architecture :global(.node-api .node-orb) { height: 68px; width: 68px; background: #263329; }
+.architecture :global(.node-api .node-orb) > svg { height: 28px; width: 28px; }
+.architecture :global(.system-node.is-selected .node-orb) { background: var(--lime); }
+.architecture :global(.node-name), .architecture :global(.node-api .node-name) { font-size: 13px; margin-top: 8px; background: #10141a; }
+.architecture :global(.node-sub) { font-size: 9px; letter-spacing: -.04em; margin-top: 4px; background: #10141a; }
+.architecture :global(.system-edge-label) { display: none; }
+.architecture :global(.system-inspector) { position: absolute; bottom: 80px; left: 0; width: 100%; min-height: 90px; padding: 15px 0 0; border-top: 1px solid #8badd024; background: #10141a; margin: 0; }
+.architecture :global(.inspector-index) { font-size: 8px; margin-bottom: 5px; color: #b5c3c9; }
+.architecture :global(.system-inspector h3) { font-size: 18px; margin-bottom: 5px; }
+.architecture :global(.system-inspector p) { font-size: 12px; line-height: 1.75; max-width: 500px; color: #b9c3c5; }
+.architecture :global(.system-send) { position: absolute; bottom: 14px; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 0; background: none; }
+.architecture :global(.send-request) { min-width: 0; min-height: 44px; padding: 0 12px; gap: 12px; font-size: 11px; background: transparent; color: var(--lime); border: 1px solid #8da16c80; }
+.architecture :global(.send-request):hover { background: #cfff7710; border-color: var(--lime); }
+.architecture :global(.send-request):disabled { color: #c5d1bc; background: #cfff7708; }
+.architecture :global(.request-pulse) { background: var(--lime); }
+.architecture :global(.simulation-label) { font-size: 9px; text-align: right; margin: 0; max-width: 110px; line-height: 1.8; color: #b5c3c9; }
+.bridge { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 23px 0; border-top: 1px solid #8badd02e; }
+.bridge > p { font: 400 15px/1.6 var(--display); }
+.bridge > p > span { color: #b0bfc0; }
+.bridge > a { display: flex; align-items: center; gap: 22px; min-height: 44px; }
+.bridge > a > :global(.mono) { font-size: 9px; color: #aebbc1; }
+.bridge > a > span:last-child { display: flex; align-items: center; gap: 18px; font-size: 12px; }
+.bridge > a svg { color: var(--lime); transition: transform .3s var(--ease); }
+.bridge > a:hover svg { transform: translate(3px, 3px) rotate(90deg); }
+
+@media (min-width: 1600px) { .hero { padding-inline: max(64px, calc((100vw - 1440px) / 2)); } }
+@media (min-width: 1101px) and (max-width: 1250px) {
+  .hero { gap: 30px; }
+  .positioning { font-size: 8px; }
+  .copy h1 { font-size: 76px; }
+  .architecture :global(.system-map-help) { display: none; }
+  .architecture :global(.system-node) { width: 80px; }
+  .architecture :global(.node-name) { font-size: 12px; }
+  .architecture :global(.node-sub) { font-size: 8px; }
+}
+@media (max-width: 1100px) and (min-width: 768px) {
+  .hero { padding: 28px 36px 0; grid-template-columns: minmax(0, 1fr); }
+  .copy { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0 40px; padding-bottom: 35px; }
+  .positioning, .copy h1 { grid-column: 1 / -1; }
+  .copy h1 { font-size: 90px; margin-top: 22px; }
+  .headline { grid-column: 1; grid-row: 3 / 5; margin-top: 25px; }
+  .headline p { font-size: 32px; }
+  .desktopBreak { display: none; }
+  .description { grid-column: 2; grid-row: 3; margin-top: 26px; }
+  .description p { font-size: 14px; }
+  .actions { grid-column: 2; grid-row: 4; margin-top: 23px; gap: 16px; }
+  .architecture { margin: 10px 0 26px; }
+  .architecture :global(.system-environment) { height: 370px; }
+  .architecture :global(.system-map) { inset: 44px 25px 128px 10px; }
+  .architecture :global(.system-inspector) { left: 0; bottom: 16px; width: 56%; min-height: 100px; padding-top: 12px; border: 0; }
+  .architecture :global(.system-send) { left: auto; width: 37%; bottom: 20px; display: block; }
+  .architecture :global(.send-request) { width: 100%; }
+  .architecture :global(.simulation-label) { max-width: none; text-align: left; margin-top: 9px; }
+}
+@media (max-width: 767px) {
+  .hero { padding: 21px 24px 0; display: block; }
+  .copy { padding: 0 0 36px; }
+  .positioning { font-size: 8px; line-height: 1.9; letter-spacing: -.025em; gap: 8px; max-width: 330px; }
+  .positioning :global(.lime-square) { width: 5px; height: 5px; }
+  .copy h1 { font-size: clamp(47px, 12.8vw, 76px); letter-spacing: -.075em; margin-top: 24px; }
+  .headline { margin-top: 26px; }
+  .headline p { font-size: clamp(27px, 7.1vw, 39px); line-height: 1.25; letter-spacing: -.9px; max-width: 475px; text-wrap: initial; }
+  .desktopBreak { display: none; }
+  .description { margin-top: 21px; max-width: 470px; }
+  .description p { font-size: 14px; line-height: 1.9; }
+  .actions { margin-top: 25px; gap: 16px 24px; }
+  .actions :global(.work-link) { min-height: 52px; gap: 21px; padding-left: 18px; font-size: 12px; }
+  .actions :global(.hero-contact) { font-size: 12px; }
+  .architecture { margin: 0 0 26px; }
+  .architecture :global(.system-environment) { height: auto; padding-top: 47px; margin: 0; }
+  .architecture :global(.system-coordinate) { top: 17px; font-size: 8px; }
+  .architecture :global(.system-map-help) { top: 17px; font-size: 0; gap: 0; }
+  .architecture :global(.system-map) { position: relative; inset: auto; height: 310px; width: 100%; }
+  .architecture :global(.system-node) { width: 108px; min-height: 86px; transform: translate(-50%, -22px); }
+  .architecture :global(.node-request), .architecture :global(.node-mongo) { left: 20% !important; }
+  .architecture :global(.node-api), .architecture :global(.node-response) { left: 77% !important; }
+  .architecture :global(.node-redis) { left: 50% !important; }
+  .architecture :global(.node-orb) { width: 44px; height: 44px; }
+  .architecture :global(.node-api .node-orb) { width: 52px; height: 52px; }
+  .architecture :global(.node-api .node-orb) > svg { width: 24px; height: 24px; }
+  .architecture :global(.node-name), .architecture :global(.node-api .node-name) { font-size: 13px; margin-top: 7px; }
+  .architecture :global(.node-sub) { font-size: 9px; margin-top: 4px; }
+  .architecture :global(.system-inspector) { position: relative; bottom: auto; left: auto; width: 100%; min-height: 145px; margin: 14px 0 0; padding: 16px 0 17px; }
+  .architecture :global(.inspector-index) { font-size: 9px; margin-bottom: 7px; }
+  .architecture :global(.system-inspector h3) { font-size: 20px; }
+  .architecture :global(.system-inspector p) { font-size: 13px; line-height: 1.8; }
+  .architecture :global(.system-send) { position: static; display: block; padding: 0 0 18px; }
+  .architecture :global(.send-request) { width: 100%; min-height: 48px; font-size: 12px; padding-inline: 15px; }
+  .architecture :global(.simulation-label) { max-width: none; text-align: left; margin-top: 10px; font-size: 10px; }
+  .bridge { display: block; padding: 23px 0 20px; }
+  .bridge > p { font-size: 13px; }
+  .bridge > a { margin-top: 15px; justify-content: space-between; gap: 15px; }
+  .bridge > a > :global(.mono) { font-size: 8px; }
+  .bridge > a > span:last-child { font-size: 11px; gap: 8px; }
+}
+@media (max-width: 370px) { .hero { padding-inline: 20px; } .copy h1 { font-size: 46px; } .positioning { font-size: 7.6px; } .architecture :global(.system-node) { width: 100px; } }
+@media (prefers-reduced-motion: reduce) { .hero :global(.hero-entrance), .hero :global(.name-entrance) { transform: none !important; } }

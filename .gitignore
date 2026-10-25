@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.npm-cache/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env*
+!.env.example
+
+.vercel/
+
+# Local visual-review and research artifacts, not application source.
+/screenshots/
+/research/
+/*_REVIEW.md
+/*_AUDIT.md

@@ -1,0 +1,3 @@
+﻿import{chromium}from'@playwright/test';
+const b=await chromium.launch({channel:'chrome',headless:true});
+for(const viewport of [{width:844,height:430},{width:390,height:480}]){const p=await b.newPage({viewport,reducedMotion:'reduce'});await p.goto('https://aayush-patil-portfolio-bpy7qk4ee-aayushpatil195s-projects.vercel.app',{waitUntil:'networkidle'});await p.getByRole('combobox',{name:'Choose journey chapter'}).selectOption('experience');await p.mouse.move(viewport.width-5,5);await p.screenshot({path:`screenshots/journey-b/deployed/${viewport.width}x${viewport.height}-compact.png`});await p.close();}await b.close();
