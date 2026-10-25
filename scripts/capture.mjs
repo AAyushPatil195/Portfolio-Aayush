@@ -90,8 +90,8 @@ try {
       await page.getByText('201 / COMMITTED', { exact: true }).waitFor();
       await page.getByText('409 / CONFLICT', { exact: true }).waitFor();
       await page.getByRole('button', { name: 'Reset simulation', exact: true }).click();
-      await page.getByRole('button', { name: /Tickets Resolved cases/ }).click();
-      await page.locator('.rag-context p').getByText(/Resolved support tickets/).waitFor();
+      await page.getByRole('button', { name: /Resolved tickets/ }).click();
+      await page.locator('.retrieval-diagram [id$="-source"] p').getByText(/Resolved support tickets/).waitFor();
       await page.getByRole('button', { name: '03 Unlock', exact: true }).click();
       await page.locator('.capsule-response').getByText('200', { exact: true }).waitFor();
       report.interactions.push({ width, test: 'node selection, request trace, seat simulation/reset, retrieval source selection, capsule lifecycle', passed: true });

@@ -27,4 +27,10 @@ QuickShow, RAG and capsule diagrams are local explanations; they do not call pro
 
 ## Deployment
 
-The existing Vercel project is `aayush-patil-portfolio`. Review changes on feature branches and use preview deployments. Production promotion is a separate, deliberate release step.
+The existing Vercel project `aayush-patil-portfolio` is connected to `AAyushPatil195/Portfolio-Aayush`. `main` contains the approved baseline; current refinements live on `refinement/experience-and-project-stories`. Branch pushes produce Vercel previews. Production promotion/merging into the production branch is a separate, deliberate release step.
+
+GitHub Actions runs TypeScript and the production build on pushes and pull requests using Node.js 24. Actions are pinned to reviewed commit hashes. The existing authenticated Vercel CLI preview workflow remains available; local `.vercel` metadata is intentionally not committed.
+
+Run `node scripts/refinements-checks.mjs` against the local dev server for responsive, keyboard, reduced-motion, animation and route checks. Set `PREVIEW_URL` and `CAPTURE_DIR` to verify a deployed preview and save artifacts elsewhere.
+
+Project repository documentation follow-ups are recorded in [docs/repository-readiness.md](docs/repository-readiness.md).

@@ -4,29 +4,6 @@
 .chapterHeading h2 { font: 400 clamp(44px,4.2vw,62px)/1.08 var(--display); letter-spacing: -.055em; }
 .chapterHeading h2 > span { color: var(--steel); }
 .chapterHeading > p { font-size: 14px; line-height: 1.85; color: #aebfc5; padding-bottom: 5px; }
-.careerGrid { display: grid; grid-template-columns: .8fr 1.65fr; gap: 70px; margin-top: 60px; }
-.period { font-size: 10px; letter-spacing: .015em; color: #adc0c6; }
-.finixia { position: relative; padding: 24px 0 60px; border-top: 1px solid #8badd059; }
-.finixia h3 { font: 400 25px/1.25 var(--display); letter-spacing: -.8px; margin-top: 22px; }
-.role { color: #b6c4c4; font-size: 13px; line-height: 1.7; margin-top: 9px; }
-.finixia ul { list-style: none; margin-top: 28px; display: grid; gap: 17px; }
-.finixia li { font-size: 14px; line-height: 1.8; color: #acbdc4; }
-.detailLink { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; font-size: 12px; color: #d2dfd5; }
-.detailLink svg { color: var(--lime); transition: transform .25s var(--ease); flex-shrink: 0; }
-.detailLink:hover { color: var(--lime); }
-.detailLink:hover svg { transform: translate(2px,-2px); }
-.finixia .detailLink { margin-top: 18px; }
-.careerArrow { display: block; color: #8badd05c; margin-top: 30px; }
-.browserstack { border-top: 1px solid #cfff7773; padding-top: 24px; }
-.browserstack h3 { font: 400 clamp(32px,3.2vw,48px)/1.2 var(--display); letter-spacing: -.06em; margin-top: 17px; }
-.browserstack h3 > span { color: var(--lime); }
-.contributions { list-style: none; margin-top: 30px; }
-.contributions > li { display: grid; grid-template-columns: 95px 1fr; gap: 15px; padding: 20px 0; border-top: 1px solid #8badd02e; }
-.contributions > li > span { font-size: 9px; color: var(--steel); line-height: 1.8; padding-top: 3px; }
-.contributions p { font-size: 14px; line-height: 1.8; color: #becaca; }
-.contributions strong { font-weight: 500; color: var(--lime); }
-.careerEnd { margin-top: 12px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
-.careerEnd > span { font-size: 8px; color: #a7b9bf; }
 .projects { padding-top: 72px; }
 .projects .chapterHeading h2 > span { color: var(--lime); }
 .flagship { margin-top: 64px; }
@@ -97,6 +74,11 @@
 .telecom :global(.rag-sources button) { padding: 15px 5px; }
 .telecom :global(.rag-sources small) { font-size: 9px; }
 .telecom :global(.rag-context) { min-height: 138px; }
+.telecom { grid-template-columns: 1fr; gap: 35px; }
+.telecom .projectVisual { max-width: none; }
+.telecomHeading { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center; }
+.telecomSummary > p { color: #b5c7cf; font-size: 14px; line-height: 1.85; max-width: 390px; }
+.telecomSummary :global(.project-actions) { margin-top: 22px; }
 .capsule { grid-template-columns: 1.1fr 1fr; }
 .capsule .projectVisual { order: -1; }
 .capsule .projectStory { padding-left: 10px; }
@@ -164,10 +146,6 @@
   .chapterHeading h2 { font-size: 43px; }
   .chapterHeading > p { max-width: 190px; font-size: 13px; }
   .desktopBreak { display: none; }
-  .careerGrid { gap: 35px; grid-template-columns: .85fr 1.4fr; }
-  .finixia h3 { font-size: 21px; }
-  .browserstack h3 { font-size: 34px; }
-  .contributions > li { grid-template-columns: 1fr; gap: 8px; }
   .flagshipHeading { gap: 25px; }
   .flagshipSummary > p { font-size: 18px; }
   .supporting, .files { gap: 30px; }
@@ -182,37 +160,17 @@
   .contactBottom { gap: 30px; }
 }
 @media (max-width:900px) and (min-width:768px) {
-  .careerGrid { grid-template-columns: 1fr; gap: 25px; }
-  .finixia { padding-bottom: 0; }
-  .finixia ul { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 18px; }
-  .careerArrow { display: none; }
-  .browserstack { margin-top: 15px; }
-  .contributions > li { grid-template-columns: 95px 1fr; }
   .flagshipHeading { grid-template-columns: 1fr; }
   .flagshipSummary > p { max-width: 400px; }
 }
 @media (max-width:767px) {
+  .telecomHeading { grid-template-columns: 1fr; gap: 22px; }
   .chapter { padding-top: 46px; padding-bottom: 50px; }
   .chapter::before { right: 24px; }
   .chapterHeading { display: block; margin-top: 27px; }
   .chapterHeading h2 { font-size: 38px; letter-spacing: -1.9px; }
   .chapterHeading > p { font-size: 13px; line-height: 1.8; margin-top: 20px; }
   .desktopBreak { display: none; }
-  .careerGrid { grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
-  .finixia { padding: 20px 0 10px; }
-  .period { font-size: 9px; }
-  .finixia h3 { font-size: 25px; margin-top: 18px; }
-  .finixia ul { margin-top: 21px; gap: 13px; }
-  .finixia li { font-size: 13px; }
-  .careerArrow { display: none; }
-  .browserstack { padding-top: 22px; }
-  .browserstack h3 { font-size: 34px; }
-  .contributions { margin-top: 24px; }
-  .contributions > li { grid-template-columns: 1fr; gap: 10px; padding: 19px 0; }
-  .contributions p { font-size: 14px; }
-  .careerEnd { display: block; margin-top: 15px; }
-  .careerEnd > span { display: block; font-size: 8px; line-height: 1.8; }
-  .careerEnd > a { margin-top: 7px; }
   .flagship { margin-top: 40px; }
   .flagshipHeading { grid-template-columns: 1fr; gap: 24px; }
   .flagshipHeading h3 { font-size: 49px; margin-top: 14px; }
@@ -295,7 +253,6 @@
 @media (max-width:370px) {
   .chapter::before { right: 20px; }
   .chapterHeading h2 { font-size: 35px; }
-  .browserstack h3 { font-size: 31px; }
   .flagshipHeading h3 { font-size: 44px; }
   .labBar > div { gap: 17px; }
   .labBar button { font-size: 10px; }
