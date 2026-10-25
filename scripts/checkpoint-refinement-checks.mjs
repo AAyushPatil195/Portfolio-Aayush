@@ -46,7 +46,7 @@ try{
  }
  for(const viewport of[{width:1440,height:1000},{width:390,height:844},{width:390,height:480}]){
   const c=await browser.newContext({viewport});const p=await c.newPage();await ready(p);const before=await geometry(p);
-  for(const id of['community','events','representation','leadership','community','events']){await choice(p,id).click();await p.waitForTimeout(45);if(viewport.width>=1024)assert.deepEqual(await geometry(p),before);}
+  for(const id of['community','events','representation','leadership','community','events']){await choice(p,id).click();await p.waitForTimeout(45);if(viewport.width>=1024){assert.deepEqual(await geometry(p),before);assert.equal(await p.locator('[data-panel]:visible').count(),1,'Rapid switching layers multiple detail panels');}}
   await p.waitForTimeout(450);await content(p,'events');if(viewport.width>=1024)assert.deepEqual(await geometry(p),before);
   await p.evaluate(()=>{for(const id of['community','leadership','representation','events'])document.querySelector(`[data-college-choice="${id}"]`).click();});await p.waitForTimeout(430);await content(p,'events');
   await p.waitForFunction(()=>{const b=document.querySelector('[data-college-choice="events"]').getBoundingClientRect();return b.top>=64&&b.bottom<=innerHeight+1;});
