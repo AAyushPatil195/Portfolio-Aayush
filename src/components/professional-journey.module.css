@@ -1,25 +1,35 @@
-.progression { margin-top: 45px; }
-.finixia { display: grid; grid-template-columns: 48px 1fr 1.15fr; gap: 22px; align-items: start; max-width: 850px; padding: 23px 0 25px; border-top: 1px solid #8badd044; }
-.monogram { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #8badd04d; color: #a7c0cd; font: 400 13px var(--mono); letter-spacing: -.8px; }
-.period { font: 400 9px/1.8 var(--mono); color: #adc0c6; }
-.finixia h3 { font: 400 25px/1.3 var(--display); letter-spacing: -.8px; margin-top: 9px; }
-.role { font-size: 13px; line-height: 1.8; color: #b7c9c9; margin-top: 7px; }
+.progression { display: grid; gap: 84px; list-style: none; padding: 0; margin: 48px 0 0; }
+.milestone { position: relative; display: grid; grid-template-columns: 38px minmax(0,1fr); gap: 28px; min-width: 0; }
+.milestoneRail { position: relative; padding-top: 28px; }
+.milestoneNumber { position: relative; z-index: 1; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #8badd06b; background: #10141a; color: #cfff77; font: 400 10px var(--mono); }
+.milestoneTrack { position: absolute; top: 78px; bottom: -104px; left: 19px; width: 1px; background: linear-gradient(#8badd044,#8badd01a); pointer-events: none; }
+.milestoneTrack > span { position: absolute; inset: 0; background: linear-gradient(#cfff77a0,#8badd070); transform-origin: top; }
+.finixia { min-width: 0; padding: 28px 0 25px; border-top: 1px solid #8badd03d; }
+.monogram { display: grid; place-items: center; flex-shrink: 0; width: 46px; height: 46px; border: 1px solid #8badd040; color: #a7c0cd; font: 400 14px var(--mono); letter-spacing: -.8px; }
+.period { font: 400 10px/1.9 var(--mono); color: #adc0c6; text-transform: uppercase; }
+.companyHeading { display: flex; justify-content: space-between; align-items: start; gap: 24px; }
+.companyHeading h3 { font: 400 36px/1.2 var(--display); letter-spacing: -1.5px; margin-top: 16px; }
+.companyHeading h3 a { display: inline-flex; align-items: center; gap: 14px; }
+.companyHeading h3 a > svg { color: #8badd0; flex-shrink: 0; opacity: .6; transition: transform .25s,opacity .25s; }
+.companyHeading h3 a:hover > svg { transform: translate(2px,-2px); opacity: 1; }
+.role { font-size: 14px; line-height: 1.8; color: #b7c9c9; margin-top: 12px; }
+.finixiaBody { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; margin-top: 29px; }
 .finixia ul { list-style: none; display: grid; gap: 10px; padding: 0; margin: 0; }
-.finixia li { color: #b2c3c8; font-size: 13px; line-height: 1.85; }
+.finixia li { color: #b2c3c8; font-size: 14px; line-height: 1.85; }
+.finixiaBody > div { justify-self: end; }
+.capability { display: block; color: #9eb5c1; font: 400 8px/1.9 var(--mono); }
 .detailLink { display: inline-flex; align-items: center; gap: 15px; min-height: 44px; color: #d5e1d6; font-size: 12px; margin-top: 10px; }
 .detailLink > svg { color: var(--lime); transition: transform .25s var(--ease); }
 .detailLink:hover { color: var(--lime); }
 .detailLink:hover > svg { transform: translate(2px,-2px); }
-.handoff { display: flex; align-items: center; gap: 20px; height: 82px; padding-left: 70px; color: #9fb4bb; }
-.handoff > svg { width: 84px; height: 62px; fill: none; color: #8badd080; }
-.handoff > span { font: 400 9px var(--mono); letter-spacing: .035em; }
-.browserstack { position: relative; margin-left: 70px; padding: 32px 34px 20px; border-top: 1px solid #cfff777a; background: linear-gradient(120deg,#1c2521 0%,#141d20 64%,#141b1e); }
-.browserstack::before { content: ''; position: absolute; top: -1px; left: 0; width: 55px; height: 3px; background: var(--lime); }
-.companyHeading { display: flex; justify-content: space-between; gap: 25px; align-items: start; }
-.companyHeading h3 { font: 400 clamp(42px,4.9vw,70px)/1.15 var(--display); letter-spacing: -.065em; margin-top: 19px; }
-.companyHeading h3 > span { color: var(--lime); }
-.companyHeading .monogram { width: 56px; height: 56px; font-size: 20px; color: var(--lime); border-color: #cfff774d; background: #cfff7707; }
-.companyCaption { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 12px; align-items: center; }
+.browserstack { position: relative; min-width: 0; margin: 0; padding: 29px 32px 23px; border-top: 1px solid #cfff7766; background: linear-gradient(120deg,#1a231f 0%,#141d20 64%,#141b1e); }
+.browserstack::before { content: ''; position: absolute; top: -1px; left: 0; width: 45px; height: 2px; background: var(--lime); }
+.browserstack .companyHeading h3 { font-size: clamp(42px,4.7vw,68px); letter-spacing: -.065em; margin-top: 19px; }
+.browserstack .companyHeading h3 a { gap: 0; }
+.browserstack .companyHeading h3 a > svg { margin-left: 17px; color: var(--lime); }
+.browserstack .companyHeading h3 a > span { color: var(--lime); }
+.browserstack .monogram { width: 52px; height: 52px; font-size: 18px; color: var(--lime); border-color: #cfff7745; background: #cfff7707; }
+.companyCaption { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 14px; align-items: center; }
 .companyCaption > span { font: 400 8px/1.8 var(--mono); color: #a3b8af; letter-spacing: .02em; }
 .companyCaption .role { margin-top: 0; }
 .workbench { margin-top: 35px; }
@@ -48,52 +58,61 @@
 .testCount > span { color: #adc0b6; font-size: 10px; line-height: 1.8; }
 .companyFooter .detailLink { margin-top: 0; }
 @media (min-width:768px) and (max-width:1100px) {
- .finixia { grid-template-columns: 42px 1fr; gap: 20px; }
- .finixia > div:last-child { grid-column: 2; }
- .finixia ul { grid-template-columns: 1fr 1fr; gap: 25px; }
- .browserstack { margin-left: 35px; padding-inline: 26px; }
- .handoff { padding-left: 35px; }
- .companyHeading h3 { font-size: 46px; }
- .companyHeading .monogram { width: 44px; height: 44px; font-size: 16px; }
+ .milestone { grid-template-columns: 32px minmax(0,1fr); gap: 20px; }
+ .milestoneNumber { width: 32px; height: 32px; font-size: 9px; }
+ .milestoneTrack { left: 16px; top: 71px; }
+ .browserstack { padding-inline: 26px; }
+ .browserstack .companyHeading h3 { font-size: 43px; }
+ .browserstack .monogram { width: 38px; height: 38px; font-size: 14px; }
+ .finixiaBody { grid-template-columns: 1fr; gap: 15px; }
+ .finixiaBody > div { justify-self: start; }
  .contributionButton { grid-template-columns: 55px 1fr 20px; gap: 15px; }
  .expanded > div { padding-left: 70px; }
  .companyFooter { align-items: start; flex-direction: column; gap: 15px; }
 }
 @media (max-width:767px) {
- .progression { margin-top: 31px; }
- .finixia { grid-template-columns: 34px 1fr; gap: 16px; padding: 20px 0 15px; }
- .finixia .monogram { width: 32px; height: 32px; font-size: 10px; }
- .finixia h3 { font-size: 23px; }
- .period { font-size: 8px; }
- .finixia > div:last-child { grid-column: 2; }
+ .progression { margin-top: 34px; gap: 65px; }
+ .milestone { display: block; }
+ .milestoneRail { position: absolute; top: 22px; left: 0; bottom: 0; width: 24px; padding: 0; pointer-events: none; }
+ .milestoneNumber { width: 24px; height: 24px; font-size: 8px; }
+ .milestoneTrack { left: 12px; top: auto; bottom: -45px; height: 28px; }
+ .finixia { padding-top: 23px; padding-bottom: 0; }
+ .monogram { display: none; }
+ .companyHeading { gap: 0; }
+ .companyHeading h3 { font-size: 28px; letter-spacing: -1px; margin-top: 20px; }
+ .companyHeading h3 a { gap: 8px; }
+ .companyHeading h3 a > svg { width: 15px; }
+ .period { font-size: 8px; line-height: 2; }
+ .finixia .period { padding-left: 38px; }
+ .browserstack .period { padding-left: 28px; }
+ .role { font-size: 12px; margin-top: 11px; }
+ .finixiaBody { display: block; margin-top: 23px; }
  .finixia li { font-size: 13px; }
+ .finixiaBody > div { margin-top: 21px; justify-self: stretch; }
+ .capability { font-size: 7px; }
  .detailLink { font-size: 11px; gap: 12px; }
- .handoff { height: 74px; padding-left: 0; gap: 12px; }
- .handoff > svg { width: 49px; }
- .handoff > span { font-size: 7px; letter-spacing: 0; }
- .browserstack { margin-left: 0; padding: 24px 17px 21px; }
- .companyHeading { gap: 12px; }
- .companyHeading h3 { font-size: 33px; margin-top: 20px; }
- .companyHeading .monogram { width: 32px; height: 32px; font-size: 12px; flex-shrink: 0; }
+ .browserstack { padding: 22px 15px 21px; }
+ .browserstack .companyHeading h3 { font-size: 35px; margin-top: 22px; }
+ .browserstack .companyHeading h3 a > svg { display: none; }
+ .browserstack .monogram { display: none; }
  .companyCaption { margin-top: 14px; gap: 12px; }
- .role { font-size: 12px; }
  .companyCaption > span { font-size: 7px; }
  .workbench { margin-top: 28px; }
  .workbenchHeading > span { font-size: 7px; }
  .workbenchHeading > span:last-child { display: none; }
- .contributionButton { grid-template-columns: 26px 1fr 17px; gap: 12px; padding: 23px 0; }
- .step > span:last-child { display: none; }
- .step > span:first-child { width: 23px; height: 23px; font-size: 8px; }
+ .contributionButton { grid-template-columns: 1fr 17px; gap: 10px; padding: 24px 0; }
+ .step { display: none; }
  .contributionCopy > strong { font-size: 21px; letter-spacing: -.6px; }
  .contributionCopy > span { font-size: 12px; line-height: 1.9; margin-top: 11px; }
  .plus { width: 17px; margin-top: 4px; }
- .expanded > div { padding: 0 6px 24px 38px; }
+ .expanded > div { padding: 0 6px 24px 0; }
  .expanded p { font-size: 12px; }
  .expanded span { font-size: 8px; }
  .companyFooter { align-items: start; flex-direction: column; gap: 19px; padding-top: 23px; }
- .testCount > strong { font-size: 46px; }
+ .testCount { gap: 10px; }
+ .testCount > strong { font-size: 42px; }
  .testCount > span { font-size: 9px; }
  .companyFooter .detailLink { font-size: 10px; }
 }
-@media (max-width:370px) { .browserstack { padding-inline: 14px; } .companyHeading h3 { font-size: 30px; } .companyHeading .monogram { width: 27px; height: 27px; font-size: 10px; } }
-@media (prefers-reduced-motion:reduce) { .plus, .detailLink svg { transition: none; } }
+@media (max-width:370px) { .browserstack { padding-inline: 12px; } .browserstack .companyHeading h3 { font-size: 32px; } .companyHeading h3 { font-size: 26px; } }
+@media (prefers-reduced-motion:reduce) { .plus, .detailLink svg, .companyHeading h3 a > svg { transition: none; } }

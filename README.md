@@ -27,7 +27,7 @@ QuickShow, RAG and capsule diagrams are local explanations; they do not call pro
 
 ## Deployment
 
-The existing Vercel project `aayush-patil-portfolio` is connected to `AAyushPatil195/Portfolio-Aayush`. `main` contains the approved baseline; current College refinements live on `refinement/college-map-stability`. Branch pushes produce Vercel previews. Production promotion/merging into the production branch is a separate, deliberate release step.
+The existing Vercel project `aayush-patil-portfolio` is connected to `AAyushPatil195/Portfolio-Aayush`. `main` contains the approved baseline; current College and career refinements live on `refinement/college-career-checkpoints`. Branch pushes produce Vercel previews. Production promotion/merging into the production branch is a separate, deliberate release step.
 
 GitHub Actions runs TypeScript and the production build on pushes and pull requests using Node.js 24. Actions are pinned to reviewed commit hashes. The existing authenticated Vercel CLI preview workflow remains available; local `.vercel` metadata is intentionally not committed.
 
@@ -35,4 +35,6 @@ Run `node scripts/refinements-checks.mjs` against the local dev server for respo
 
 Project repository documentation follow-ups are recorded in [docs/repository-readiness.md](docs/repository-readiness.md).
 
-College review checks: `node scripts/college-checks.mjs`. The activity map uses native radio selection with a shared detail panel; selection and reset also work without JavaScript. Its four groups are thematic, not a dated chronology. Checks compare exact node positions and SVG paths across individual, repeated, and sequential selections, plus keyboard, responsive, reduced-motion, and no-JavaScript behavior. Capture all five states with `node scripts/college-capture.mjs` and record interactions with `node scripts/college-record.mjs`. Private reference folders and PDFs are excluded from source control and deployments.
+College and career review checks: `node scripts/checkpoint-refinement-checks.mjs` (also available through `scripts/college-checks.mjs`). College uses a fixed vertical checkpoint selector with horizontally revealed desktop details, and a single-open inline accordion below 1024px. Its four groups are thematic, not a dated chronology. No-JavaScript visitors receive native single-open details with the complete verified content. Professional Journey uses two independent chronological list entries and articles, with scroll-linked milestone markers and a restrained connection.
+
+The checks cover exact desktop checkpoint geometry, all activity facts, rapid switching, keyboard navigation, reduced motion, no-JavaScript disclosure, company independence and dates, and forward/reverse chapter navigation. Capture College states and both experiences with `node scripts/checkpoint-refinement-capture.mjs`; record both sections with `node scripts/checkpoint-refinement-record.mjs`. The older College capture/record commands forward to these helpers. Set `PREVIEW_URL` and `CAPTURE_DIR` for public preview verification. Private reference folders and PDFs remain excluded from source control and deployments.

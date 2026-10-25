@@ -8,6 +8,7 @@ import { QuickShowLab } from './quickshow-lab';
 import { CapsuleLifecycle, FileAccessDiagram, RetrievalDiagram } from './project-visuals';
 import { FieldNote } from './field-note';
 import { ProfessionalContributions } from './professional-contributions';
+import { ProfessionalMilestone } from './professional-milestone';
 import career from './professional-journey.module.css';
 import journey from './journey.module.css';
 import styles from './journey-chapters.module.css';
@@ -20,11 +21,29 @@ export function JourneyExperience() {
   return <section id="experience" data-journey-chapter className={`${journey.chapter} ${styles.chapter}`} aria-labelledby="career-title">
     <ChapterLabel number="03">PROFESSIONAL JOURNEY</ChapterLabel>
     <Reveal className={styles.chapterHeading}><h2 id="career-title">From learning<br />to <span>shipping.</span></h2><p>Interfaces first. Then the systems,<br className={styles.desktopBreak} /> tools, and checks behind them.</p></Reveal>
-    <div className={career.progression}>
-      <article className={career.finixia} aria-labelledby="home-finixia-title"><span className={career.monogram} aria-hidden="true">FD</span><div><span className={career.period}>01 / JAN — JUN 2025</span><h3 id="home-finixia-title">Finixia Dedecons</h3><p className={career.role}>Frontend Developer</p></div><div><ul><li>Responsive React interfaces and reusable components.</li><li>REST API integration for Wens Force and Melo Films.</li></ul><Link className={career.detailLink} href="/work#finixia">Inside the work <ArrowUpRight size={16} aria-hidden="true" /></Link></div></article>
-      <div className={career.handoff} aria-hidden="true"><svg viewBox="0 0 84 62"><path d="M1 1v20q0 15 16 15h46q16 0 16 16v7m-5-5 5 5 5-5" stroke="currentColor" strokeWidth="1" /></svg><span>FROM PRODUCT INTERFACES → PRODUCTION SYSTEMS</span></div>
-      <article className={career.browserstack} aria-labelledby="home-browserstack-title"><div className={career.companyHeading}><div><span className={career.period}>02 / JUN 2025 — APR 2026</span><h3 id="home-browserstack-title">BrowserStack<span>.</span></h3></div><span className={career.monogram} aria-hidden="true">BS</span></div><div className={career.companyCaption}><p className={career.role}>Software Development Engineer</p><span>PRODUCT / TOOLING / RELIABILITY</span></div><ProfessionalContributions /><div className={career.companyFooter}><div className={career.testCount}><strong>130+</strong><span>API, UI & visual<br />regression tests developed</span></div><Link className={career.detailLink} href="/work#browserstack">Explore the contributions <ArrowUpRight size={16} aria-hidden="true" /></Link></div></article>
-    </div>
+    <ol className={career.progression} aria-label="Professional milestones, chronological order">
+      <ProfessionalMilestone number="01" company="finixia">
+        <article className={career.finixia} aria-labelledby="home-finixia-title">
+          <div className={career.companyHeading}><div>
+            <p className={career.period}><time dateTime="2025-01">January 2025</time><span aria-hidden="true"> &mdash; </span><time dateTime="2025-06">June 2025</time></p>
+            <h3 id="home-finixia-title"><Link href="/work#finixia">Finixia Dedecons<ArrowUpRight size={20} aria-hidden="true" /></Link></h3>
+            <p className={career.role}>Frontend Developer</p>
+          </div><span className={career.monogram} aria-hidden="true">FD</span></div>
+          <div className={career.finixiaBody}><ul><li>Responsive React interfaces and reusable components.</li><li>REST API integration for Wens Force and Melo Films.</li></ul><div><span className={career.capability}>REACT / JAVASCRIPT / REST APIs</span><Link className={career.detailLink} href="/work#finixia">Inside the work <ArrowUpRight size={16} aria-hidden="true" /></Link></div></div>
+        </article>
+      </ProfessionalMilestone>
+      <ProfessionalMilestone number="02" company="browserstack" last>
+        <article className={career.browserstack} aria-labelledby="home-browserstack-title">
+          <div className={career.companyHeading}><div>
+            <p className={career.period}><time dateTime="2025-06">June 2025</time><span aria-hidden="true"> &mdash; </span><time dateTime="2026-04">April 2026</time></p>
+            <h3 id="home-browserstack-title"><Link href="/work#browserstack">BrowserStack<span>.</span><ArrowUpRight size={25} aria-hidden="true" /></Link></h3>
+          </div><span className={career.monogram} aria-hidden="true">BS</span></div>
+          <div className={career.companyCaption}><p className={career.role}>Software Development Engineer</p><span>PRODUCT / TOOLING / RELIABILITY</span></div>
+          <ProfessionalContributions />
+          <div className={career.companyFooter}><div className={career.testCount}><strong>130+</strong><span>API, UI &amp; visual<br />regression tests developed</span></div><Link className={career.detailLink} href="/work#browserstack">Explore the contributions <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
+        </article>
+      </ProfessionalMilestone>
+    </ol>
   </section>;
 }
 
