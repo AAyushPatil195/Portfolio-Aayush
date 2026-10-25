@@ -1,4 +1,5 @@
-.journey { --trail-left: 40px; --trail-width: 176px; --chapter-left: 280px; position: relative; max-width: 1600px; margin-inline: auto; overflow-anchor: none; }
+.journey { --trail-left: 40px; --trail-width: 176px; --chapter-left: 280px; --chapter-right: 64px; position: relative; max-width: 1600px; margin-inline: auto; overflow-anchor: none; background: linear-gradient(100deg,#8badd003,transparent 47%); }
+.journey > :global(section[data-journey-chapter])::before { left: calc(var(--trail-left) + var(--trail-width) * .35); right: var(--chapter-right); height: 1px; border: 0; background: linear-gradient(90deg,transparent,#8badd026 22%,#8badd033 57%,transparent); pointer-events: none; }
 .chapter { position: relative; padding: 80px 64px 70px var(--chapter-left); scroll-margin-top: 64px; }
 .intro { min-height: 780px; padding-top: 78px; }
 .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 10px; color: #b9c7c5; letter-spacing: .025em; }
@@ -34,7 +35,7 @@
 .scrollCue:hover > svg { transform: translateY(4px); }
 
 .education { min-height: 0; padding-top: 56px; padding-bottom: 52px; }
-.education::before, .college::before, .nextChapter::before { content: ''; position: absolute; top: 0; left: var(--chapter-left); right: 64px; border-top: 1px solid #8badd02c; }
+.education::before, .nextChapter::before { content: ''; position: absolute; top: 0; left: var(--chapter-left); right: 64px; border-top: 1px solid #8badd02c; }
 .educationHeading { margin-top: 24px; }
 .educationHeading h2 { font: 400 44px/1.12 var(--display); letter-spacing: -2px; }
 .educationHeading h2 > span { color: var(--steel); }
@@ -43,7 +44,7 @@
 .milestoneMeta { display: flex; justify-content: space-between; gap: 10px; color: #a3b5bc; }
 .milestoneMeta :global(.mono) { font-size: 9px; }
 .milestone dt { font: 400 18px/1.4 var(--display); letter-spacing: -.4px; }
-.milestoneName { display: block; margin-top: 16px; }
+.milestoneName { display: block; margin-top: 16px; min-height: 2.8em; text-wrap: balance; }
 .milestone dd { margin: 18px 0 0; }
 .metric { display: flex; align-items: baseline; gap: 5px; font: 400 64px/1.1 var(--display); letter-spacing: -3.8px; transition: color .3s, transform .4s var(--ease); }
 .metric > span:not(:global(.sr-only)) { font-size: .48em; letter-spacing: -1px; }
@@ -51,34 +52,6 @@
 .percentileNote { display: block; margin-top: 11px; font: 400 12px/1.7 var(--body); color: #aebdc2; letter-spacing: 0; }
 .rank .metric { color: var(--steel); }
 .milestone:hover .metric { color: var(--lime); transform: translateY(-3px); }
-.college { min-height: 0; padding-top: 56px; padding-bottom: 56px; }
-.collegeHeading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-top: 30px; }
-.collegeOverline { color: #a9b9c0; font-size: 9px; letter-spacing: .015em; }
-.collegeHeading h2 { font: 400 64px/1.1 var(--display); letter-spacing: -3.8px; margin-top: 12px; }
-.collegeHeading h2 > span { color: var(--lime); }
-.collegeYears { display: flex; gap: 13px; padding-bottom: 8px; font: 400 12px var(--mono); color: #bbc8cb; white-space: nowrap; }
-.collegeYears > span { color: var(--steel); }
-.collegeGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; margin-top: 32px; }
-.degree h3 { font: 400 22px/1.5 var(--display); letter-spacing: -.5px; color: #d5dfda; }
-.grade { display: flex; align-items: center; gap: 24px; margin-top: 26px; }
-.grade > span { font: 400 74px/1 var(--display); letter-spacing: -4px; }
-.grade > div > span { font-size: 9px; color: var(--steel); }
-.grade > div > p { font-size: 12px; color: #aebfc5; margin-top: 5px; }
-.leadership > span { color: #a6bbc1; font-size: 9px; }
-.leadership h3 { margin-top: 9px; font: 400 21px/1.4 var(--display); letter-spacing: -.5px; }
-.leadership p { font-size: 14px; line-height: 1.85; color: #aebfc5; margin-top: 12px; }
-.collegeDetails { margin-top: 22px; border-block: 1px solid #8badd040; }
-.collegeDetails summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; min-height: 56px; list-style: none; font-size: 12px; color: #d3ded9; }
-.collegeDetails summary::-webkit-details-marker { display: none; }
-.collegeDetails summary:hover { color: var(--lime); }
-.collegeDetails summary:focus-visible { outline: 3px solid var(--lime); outline-offset: 5px; }
-.collegeDetails summary > svg { color: var(--steel); transition: transform .3s var(--ease); }
-.collegeDetails[open] summary > svg { transform: rotate(45deg); }
-.collegeDetails > div { padding: 8px 0 24px; }
-.problemCount { font: 400 49px/1.2 var(--display); letter-spacing: -2px; color: var(--steel); }
-.problemCount > span { font-size: 30px; }
-.collegeDetails > div > p + p { font-size: 14px; color: #b9c7c9; line-height: 1.9; margin-top: 13px; }
-.collegeDetails a { display: inline-flex; align-items: center; gap: 13px; min-height: 44px; margin-top: 13px; font-size: 12px; color: var(--lime); }
 .nextChapter { min-height: 330px; padding-top: 48px; padding-bottom: 44px; }
 .nextChapter h2 { font: 400 51px/1.1 var(--display); letter-spacing: -2.5px; margin-top: 39px; }
 .nextChapter h2 > span { color: var(--steel); }
@@ -107,9 +80,9 @@
 .workArchitecture :global(.system-environment) { margin-top: 0; }
 
 @media (max-width: 1100px) and (min-width: 768px) {
-  .journey { --trail-left: 12px; --trail-width: 142px; --chapter-left: 205px; }
+  .journey { --trail-left: 12px; --trail-width: 142px; --chapter-left: 205px; --chapter-right: 36px; }
   .chapter { padding-right: 36px; }
-  .education::before, .college::before, .nextChapter::before { right: 36px; }
+  .education::before, .nextChapter::before { right: 36px; }
   .intro h1 { font-size: 83px; }
   .introGrid { gap: 30px; }
   .introStatement > p { font-size: 46px; letter-spacing: -2.2px; }
@@ -126,17 +99,13 @@
   .metric { font-size: 54px; letter-spacing: -3px; }
   .metric[data-unit='%ile'] { font-size: 46px; }
   .metric[data-unit='%ile'] > span:not(:global(.sr-only)) { font-size: 11px; }
-  .collegeHeading h2 { font-size: 56px; }
-  .collegeYears { font-size: 10px; gap: 8px; }
-  .collegeGrid { gap: 30px; }
-  .degree h3 { font-size: 20px; }
   .nextRow { align-items: flex-start; flex-direction: column; gap: 15px; }
   .journeyFooter { padding-inline: 205px 36px; gap: 15px; flex-wrap: wrap; }
   .journeyFooter nav { gap: 20px; }
   .workIntro { padding-inline: 36px; }
 }
 @media (max-width: 767px) {
-  .journey { --trail-left: 7px; --trail-width: 48px; --chapter-left: 76px; }
+  .journey { --trail-left: 7px; --trail-width: 48px; --chapter-left: 76px; --chapter-right: 24px; }
   .chapter { padding: 61px 24px 55px var(--chapter-left); scroll-margin-top: 48px; }
   .intro { min-height: 900px; padding-top: 39px; }
   .eyebrow { font-size: 8px; letter-spacing: .005em; gap: 8px; }
@@ -161,7 +130,7 @@
   .fieldNote > div > span { font-size: 7px; }
   .scrollCue { font-size: 7px; gap: 13px; margin-top: 22px; }
   .education { min-height: 0; padding-top: 40px; padding-bottom: 44px; }
-  .education::before, .college::before, .nextChapter::before { right: 24px; }
+  .education::before, .nextChapter::before { right: 24px; }
   .educationHeading { margin-top: 20px; }
   .educationHeading h2 { font-size: 34px; line-height: 1.1; letter-spacing: -1.5px; }
   .milestones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 20px; margin-top: 26px; }
@@ -174,24 +143,6 @@
   .metric[data-unit='%ile'] { font-size: 48px; }
   .metric[data-unit='%ile'] > span:not(:global(.sr-only)) { font-size: 12px; }
   .percentileNote { margin-top: 9px; font-size: 11px; line-height: 1.7; }
-  .college { min-height: 0; padding-top: 44px; padding-bottom: 44px; }
-  .collegeHeading { display: block; margin-top: 24px; }
-  .collegeOverline { font-size: 9px; line-height: 1.9; display: block; max-width: 265px; }
-  .collegeHeading h2 { font-size: 44px; letter-spacing: -2.4px; margin-top: 12px; }
-  .collegeYears { font-size: 10px; margin-top: 18px; gap: 10px; padding: 0; }
-  .collegeGrid { display: block; margin-top: 26px; }
-  .degree h3 { font-size: 20px; letter-spacing: -.4px; line-height: 1.5; }
-  .grade { gap: 23px; margin-top: 24px; }
-  .grade > span { font-size: 66px; }
-  .grade > div > span { font-size: 9px; }
-  .grade > div > p { font-size: 11px; }
-  .collegeStory { margin-top: 26px; padding-top: 22px; border-top: 1px solid #8badd02c; }
-  .leadership > span { font-size: 9px; }
-  .leadership h3 { font-size: 20px; }
-  .leadership p { font-size: 14px; }
-  .collegeDetails summary { font-size: 11px; min-height: 56px; }
-  .collegeDetails > div > p + p { font-size: 13px; }
-  .collegeDetails a { font-size: 11px; gap: 10px; }
   .nextChapter { min-height: 340px; padding-top: 44px; padding-bottom: 44px; }
   .nextChapter h2 { font-size: 38px; letter-spacing: -1.9px; margin-top: 32px; }
   .nextRow { flex-direction: column; align-items: flex-start; gap: 17px; margin-top: 27px; }
@@ -208,12 +159,11 @@
   .workArchitecture > summary { font-size: 12px; gap: 13px; }
 }
 @media (max-width: 370px) {
-  .journey { --chapter-left: 69px; }
+  .journey { --chapter-left: 69px; --chapter-right: 20px; }
   .chapter { padding-right: 20px; }
-  .education::before, .college::before, .nextChapter::before { right: 20px; }
+  .education::before, .nextChapter::before { right: 20px; }
   .intro h1 { font-size: 39px; }
   .introStatement > p { font-size: 39px; }
-  .collegeHeading h2 { font-size: 43px; }
   .metric { font-size: 52px; }
   .metric[data-unit='%ile'] { font-size: 45px; }
   .journeyFooter { padding-inline: 69px 20px; }

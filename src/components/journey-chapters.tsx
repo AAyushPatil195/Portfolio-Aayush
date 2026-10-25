@@ -13,7 +13,7 @@ import journey from './journey.module.css';
 import styles from './journey-chapters.module.css';
 
 function ChapterLabel({ number, children }: { number: string; children: string }) {
-  return <p className={`mono ${journey.eyebrow}`}><span /> {number} / {children}</p>;
+  return <p data-journey-heading className={`mono ${journey.eyebrow}`}><span /> {number} / {children}</p>;
 }
 
 export function JourneyExperience() {

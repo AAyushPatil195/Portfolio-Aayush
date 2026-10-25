@@ -10,3 +10,7 @@ test-results
 playwright-report
 *.tsbuildinfo
 *.md
+*.pdf
+reference
+references
+refrerences

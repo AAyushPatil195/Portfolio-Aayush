@@ -24,7 +24,8 @@ export const github = 'https://github.com/AAyushPatil195';
 export const linkedin = 'https://www.linkedin.com/in/aayushpatil1905/';
 export const benchmarkSource = `${github}/BookShow/blob/b536cb6d2140869cf0c5a992b9b2689c7a8689a1/benchmarks/README.md`;
 
-// Add only after the actual PDF has been supplied, inspected, and placed in public/.
+// The source resume is private. Add only after explicit publication approval,
+// inspection, and placement of an approved PDF in public/.
 export const resume: { href: string; filename: string } | null = null;
 
 // Demo actions require a verified frontend record. Repository homepages and API

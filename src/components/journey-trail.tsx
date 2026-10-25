@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { motion, useMotionValue, useMotionValueEvent, useScroll } from 'motion/react';
 import { useMotionPreference } from './motion-primitives';
 import styles from './journey.module.css';
@@ -28,17 +28,21 @@ const pathData = points.reduce((d, b, i) => {
 export function JourneyTrail({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   const path = useRef<SVGPathElement>(null);
+  const map = useRef<HTMLElement>(null);
+  const connectionId = useId();
   const current = useRef(-1);
-  const geometry = useRef({ starts: [] as number[], targets: [] as number[], length: 0 });
+  const geometry = useRef({ starts: [] as number[], targets: [] as number[], headings: [] as {x:number;y:number}[], length: 0 });
   const [active, setActive] = useState(0);
   const [ready, setReady] = useState(false);
   const reduced = useMotionPreference();
   const progress = useMotionValue(0);
   const beamX = useMotionValue(points[0].x), beamY = useMotionValue(points[0].y);
+  const connection = useMotionValue('M0 0');
+  const connectionOpacity = useMotionValue(0);
   const { scrollY } = useScroll();
 
   const update = useCallback(() => {
-    const { starts, targets, length } = geometry.current;
+    const { starts, targets, headings, length } = geometry.current;
     if (!starts.length || !path.current) return;
     const position = Math.max(0, window.scrollY);
     let next = 0;
@@ -55,11 +59,25 @@ export function JourneyTrail({ children }: { children: ReactNode }) {
     // Section measurements affect reading progress, never the rail's size.
     const value = Math.min(1, (next + fraction) / (chapters.length - 1));
     progress.set(value);
+    // One viewport-sized connector joins the real chapter to the fixed trail.
+    // Heading positions are cached; only the sticky map needs a scroll-time read.
+    const destination = headings[next], mapBounds = map.current?.getBoundingClientRect();
+    if (destination && mapBounds) {
+      const targetY = destination.y-position;
+      const compact = innerHeight <= 700;
+      const radius = compact ? 4 : innerWidth < 768 ? 15 : 19;
+      const startX = mapBounds.left + points[next].x/width*mapBounds.width + radius;
+      const startY = mapBounds.top + points[next].y/height*mapBounds.height;
+      const gap = destination.x-startX;
+      const opacity = gap>8 ? Math.max(0,Math.min(1,(targetY-45)/35,(innerHeight-25-targetY)/45)) : 0;
+      connection.set(`M ${startX} ${startY} C ${startX+gap*.48} ${startY}, ${destination.x-gap*.32} ${targetY}, ${destination.x} ${targetY}`);
+      connectionOpacity.set(opacity);
+    }
     if (!reduced) {
       const point = path.current.getPointAtLength(value * length);
       beamX.set(point.x); beamY.set(point.y);
     }
-  }, [reduced, progress, beamX, beamY]);
+  }, [reduced, progress, beamX, beamY, connection, connectionOpacity]);
 
   useEffect(() => {
     const element = root.current;
@@ -74,7 +92,13 @@ export function JourneyTrail({ children }: { children: ReactNode }) {
       });
       const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
       const targets = sections.map(section => Math.max(0, Math.min(maxScroll, section.getBoundingClientRect().top + window.scrollY - padding - (parseFloat(getComputedStyle(section).scrollMarginTop) || 0))));
-      geometry.current = { starts, targets, length: path.current?.getTotalLength() ?? 0 };
+      const headings = sections.map(section => {
+        const entry=section.querySelector<HTMLElement>('[data-college-entry]');
+        const marker=entry??section.querySelector<HTMLElement>('[data-journey-heading] > span');
+        const bounds=(marker??section).getBoundingClientRect();
+        return {x:entry?bounds.left-3:bounds.left+bounds.width/2,y:bounds.top+bounds.height/2+window.scrollY};
+      });
+      geometry.current = { starts, targets, headings, length: path.current?.getTotalLength() ?? 0 };
       setReady(true);
       update();
     };
@@ -96,10 +120,11 @@ export function JourneyTrail({ children }: { children: ReactNode }) {
   useMotionValueEvent(scrollY, 'change', update);
 
   return <div className={styles.journey} ref={root} data-active-chapter={chapters[active].id} data-trail-ready={ready}>
+    <svg className={rail.chapterConnection} data-chapter-connection aria-hidden="true"><defs><linearGradient id={connectionId}><stop stopColor="#cfff77" stopOpacity=".4" /><stop offset="1" stopColor="#8badd0" stopOpacity=".5" /></linearGradient></defs><motion.path key={active} d={connection} style={{opacity:connectionOpacity}} stroke={`url(#${connectionId})`} strokeWidth="1" fill="none" initial={reduced?false:{pathLength:0}} animate={{pathLength:1}} transition={{duration:reduced?0:.65}} /></svg>
     <aside className={rail.bounds} aria-label="Journey progress">
       <div className={rail.navigator} data-journey-navigator data-reduced-motion={reduced} data-enhanced={ready}>
         <p className={rail.railHeading} aria-hidden="true">MY JOURNEY <span>00—06</span></p>
-        <nav className={rail.map} aria-label="Journey chapters">
+        <nav className={rail.map} aria-label="Journey chapters" ref={map}>
           <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" aria-hidden="true">
             <path className={rail.base} d={pathData} ref={path} vectorEffect="non-scaling-stroke" />
             <motion.path className={rail.progress} d={pathData} style={{ pathLength: progress }} vectorEffect="non-scaling-stroke" />

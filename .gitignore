@@ -14,3 +14,9 @@ playwright-report/
 /research/
 /*_REVIEW.md
 /*_AUDIT.md
+
+# Private source documents: never publish the resume or extracted personal data.
+*.pdf
+/reference/
+/references/
+/refrerences/
