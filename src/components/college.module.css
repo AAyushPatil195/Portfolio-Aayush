@@ -1,4 +1,4 @@
-.college { padding-top: 56px; padding-bottom: 56px; background: radial-gradient(ellipse at 28% 40%,#8badd006,transparent 65%); }
+section.college { padding-top: 56px; padding-bottom: 56px; background: radial-gradient(ellipse at 28% 40%,#8badd006,transparent 65%); }
 .college::before { content: ''; position: absolute; top: 0; }
 .heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-top: 30px; }
 .institution { color: #adc0c7; font-size: 9px; letter-spacing: .01em; }
@@ -87,7 +87,7 @@
  .thread:nth-of-type(even) .detailContent { margin-left: 86px; }
 }
 @media (max-width:767px) {
- .college { padding-top: 44px; padding-bottom: 43px; }
+ section.college { padding-top: 44px; padding-bottom: 43px; }
  .heading { display: block; margin-top: 26px; }
  .institution { display: block; font-size: 8px; line-height: 1.9; max-width: 280px; }
  .heading h2 { font-size: 49px; margin-top: 13px; letter-spacing: -2.7px; }
